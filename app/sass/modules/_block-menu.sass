@@ -1,0 +1,197 @@
+.menu
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  padding: 1.5rem
+  overflow-y: auto
+  overflow-x: hidden
+  z-index: 8
+  +MQ(M)
+    padding: 3rem
+
+.menu__content
+  position: relative
+  padding-top: 62px
+  +MQ(M)
+    padding-top: 72px
+  +MQ(L)
+    height: 100%
+    padding-top: 0
+
+.menu__data
+  position: relative
+  +MQ(XL)
+    height: 100%
+
+.menudata__content
+  position: relative
+  padding: 8rem 0
+  +MQ(M)
+    padding: 10rem 0
+  +MQ(L)
+    width: 100%
+    height: 100%
+    padding: 0
+    overflow: hidden
+
+.menudata__links
+  position: relative
+  width: 100%
+  padding: 0 1.5rem
+  margin-bottom: 5rem
+  +MQ(M)
+    padding: 0 2rem
+  +MQ(L)
+    position: absolute
+    left: 0
+    +center(y)
+  +MQ(XXL)
+    padding: 0 3rem
+
+.menudata__contact
+  position: relative
+  width: 100%
+  padding: 0 1.5rem
+  +MQ(M)
+    padding: 0 2rem
+  +MQ(L)
+    +position(absolute, null null 2rem 0)
+  +MQ(XXL)
+    bottom: 3rem
+    padding: 0 3rem
+
+.menudata__item
+  margin-bottom: 2.8rem
+  &:last-of-type
+    margin-bottom: 0
+  +MQ(L)
+    margin-bottom: 0
+
+.menu__media
+  height: 70vh
+  min-height: 600px
+  +MQ(M)
+    min-height: 760px
+  +MQ(L)
+    height: 100%
+    min-height: auto
+
+.menu__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+
+.photo-hover
+  +position(absolute, 0 0 0 0)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  opacity: 0
+  visibility: hidden
+  transition: all .5s ease-in-out
+  pointer-events: none
+  &.active
+    opacity: 1
+    visibility: visible
+  
+.navigation
+  position: relative
+  li
+    display: block
+    margin-bottom: 2rem
+    font: normal 300 5rem/1.1 $default-font
+    text-transform: uppercase
+    color: $text-dark
+    overflow: hidden
+    &:last-of-type
+      margin-bottom: 0
+    a
+      position: relative
+      display: inline-block
+      font: normal 300 5rem/1.1 $default-font
+      text-transform: uppercase
+      color: $text-dark
+      white-space: nowrap
+      span
+        display: block
+        font-style: normal
+        white-space: nowrap
+        transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+      .nav-star
+        position: absolute
+        left: 0
+        top: 50%
+        bottom: auto
+        transform: translateY(-50%) translateX(-5.4rem)
+        width: 5.4rem
+        height: 4rem
+        &::after
+          content: ""
+          display: block
+          width: 4rem
+          height: 100%
+          background-repeat: no-repeat
+          background-size: cover
+          background-image: url("../img/icons/60x60-star.svg")
+      .nav-caption
+        transform: translateX(0)
+      &.active-link
+        .nav-caption
+          transform: translateX(5.4rem)
+        .nav-star
+          transform: translateY(-50%) translateX(0)
+      .no-touch &:hover
+        .nav-caption
+          transform: translateX(5.4rem)
+        .nav-star
+          transform: translateY(-50%) translateX(0)
+        .nav-star
+          &::after
+            animation: starRotate 1s 1 both
+  +MQ(M)
+    li
+      font-size: 6rem
+      a
+        font-size: 6rem
+        .nav-star
+          width: 6rem
+          height: 4.6rem
+          transform: translateY(-50%) translateX(-6rem)
+          &::after
+            width: 4.6rem
+        .nav-caption
+          transform: translateX(0)
+        &.active-link
+          .nav-caption
+            transform: translateX(6rem)
+        .no-touch &:hover
+          .nav-caption
+            transform: translateX(6rem)
+  +MQ(XXL)
+    li
+      font-size: 7.8rem
+      a
+        font-size: 7.8rem
+        .nav-star
+          width: 7.4rem
+          height: 6rem
+          transform: translateY(-50%) translateX(-7.4rem)
+          &::after
+            width: 6rem
+        .nav-caption
+          transform: translateX(0)
+        &.active-link
+          .nav-caption
+            transform: translateX(7.4rem)
+        .no-touch &:hover
+          .nav-caption
+            transform: translateX(7.4rem)
+
+@keyframes starRotate
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)

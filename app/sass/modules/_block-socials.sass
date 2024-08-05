@@ -1,0 +1,35 @@
+.socials-mobile
+  display: block
+  position: relative
+  margin-top: 1.5rem
+  padding: 1.5rem
+  text-align: center
+  background-color: rgba($white, 0.2)
+  ul
+    display: block
+    position: relative
+    width: 100%
+    font: normal 700 1.6rem/1 $default-font
+    li
+      display: inline-block
+      margin-left: -4px
+      margin-right: 2rem
+      &:last-of-type
+        margin-right: 0
+      a
+        display: block
+        font-size: 1.6rem
+        line-height: 1
+        color: $text-dark
+  +MQ(L)
+    display: none
+  
+.socials
+  li
+    display: inline-block
+  a
+    display: block
+  li
+    margin-right: 2rem
+    &:last-of-type
+      margin-right: 0

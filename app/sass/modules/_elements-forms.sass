@@ -1,0 +1,154 @@
+.form-container
+  position: relative
+
+.form
+  opacity: 1
+  transition: opacity .5s ease-in-out
+  &.is-hidden
+    opacity: 0
+
+form
+  position: relative
+  width: 100%
+  input, textarea
+    position: relative
+    display: block
+    width: 100%
+    border: none
+    outline: none
+    margin: 0
+    padding: 0
+    background-color: transparent
+    padding: 1rem
+    font: normal 600 2.2rem/1.4 $default-font
+    transition: border .3s, background-color 0.3s ease-in-out
+    &.margin-s
+      margin: 0 0 .6rem 0
+  input
+    height: 6.4rem
+    margin: 0 0 3.4rem 0
+
+  textarea
+    height: 16rem
+    resize: none
+    margin: 0 0 2.4rem 0
+  input, textarea
+    &.margin-s
+      margin: 0 0 .6rem 0
+  .inputs-description
+    display: block
+    width: 100%
+    margin-bottom: 1rem
+    padding: 0 .2rem
+    text-align: right
+    font: normal 500 1.5rem/1.2 $default-font
+  +MQ(XXL)
+    textarea
+      height: 18rem
+
+.form-dark
+  ::-webkit-input-placeholder
+    font-weight: 400
+    color: tint($text-base, 40%)
+  :-moz-placeholder
+    font-weight: 400
+    color: tint($text-base, 40%)
+  ::-moz-placeholder
+    font-weight: 400
+    color: tint($text-base, 40%)
+  :-ms-input-placeholder
+    font-weight: 400
+    color: tint($text-base, 40%)
+
+  input:focus:required:invalid,
+  textarea:focus:required:invalid
+    color: $text-dark
+  input:required:valid,
+  textarea:required:valid
+    color: $text-dark
+
+  input, textarea
+    border-bottom: 2px solid rgba($text-dark, .16)
+    color: $text-dark
+    &:focus
+      border-bottom: 2px solid $text-dark
+
+  .inputs-description
+    color: tint($text-base, 20%)
+
+.form-light
+  ::-webkit-input-placeholder
+    font-weight: 300
+    color: $text-light-mute
+  :-moz-placeholder
+    font-weight: 300
+    color: $text-light-mute
+  ::-moz-placeholder
+    font-weight: 300
+    color: $text-light-mute
+  :-ms-input-placeholder
+    font-weight: 300
+    color: $text-light-mute
+
+  input:focus:required:invalid,
+  textarea:focus:required:invalid
+    color: $text-light
+  input:required:valid,
+  textarea:required:valid
+    color: $text-light
+
+  input, textarea
+    border-bottom: 2px solid $text-light-mute
+    color: $text-light
+    &:focus
+      border-bottom: 2px solid $white
+
+  .inputs-description
+    color: $text-light-mute
+
+.reply-group
+  position: absolute
+  +center
+  width: 100%
+  max-width: 400px
+  padding: 0 15px
+  text-align: center
+  opacity: 0
+  transition: opacity .5s ease-in-out
+  &.is-visible
+    opacity: 1
+
+.notify
+  .reply-group
+    left: 0
+    top: 0
+    bottom: auto
+    right: auto
+    transform: translateX(0) translateY(0)
+    padding: 10px 0 0 0
+    text-align: left
+
+.reply-group__icon
+  display: block
+  margin: 0 auto 1.7rem
+  font-size: 4rem
+  color: $text-dark
+  &.opposite
+    color: $accent-color
+
+.reply-group__title
+  font: normal 500 2.6rem/1.1 $default-font
+  letter-spacing: 0.1rem
+  text-transform: uppercase
+  color: $text-dark
+  margin-bottom: 1.2rem
+  &.opposite
+    color: $text-light
+
+.reply-group__text
+  display: block
+  font: normal 400 1.8rem/1.4 $default-font
+  color: $text-dark
+  &.opposite
+    font-weight: 300
+    color: $text-light

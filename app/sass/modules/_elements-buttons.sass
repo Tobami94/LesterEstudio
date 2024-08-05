@@ -1,0 +1,295 @@
+.btn
+  position: relative
+  display: block
+  border: none
+  outline: 0
+  padding: 0
+  font: inherit
+  background-color: transparent
+  cursor: pointer
+  text-decoration: none
+  user-select: none
+  text-align: center
+  em
+    display: block
+  .btn-title
+    display: block
+    position: relative
+    transform: translateY(0)
+    transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+  .btn-hover
+    display: block
+    +position(absolute, 0 null null 0)
+    width: 100%
+    transform: translateY(100%)
+    transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+  .no-touch &:hover
+    .btn-title
+      transform: translateY(-100%)
+    .btn-hover
+      transform: translateY(0)
+    .btn__background
+      transform: scale(1.04)
+  +MQ(M)
+    display: inline-block
+
+.menu-trigger
+  height: 3.2rem
+  border-radius: 1.7rem
+  padding: 0 1rem
+  font: normal 700 1.5rem/3.2rem $default-font
+  text-transform: uppercase
+  letter-spacing: 0.06rem
+  color: $text-dark
+  overflow: visible
+  em
+    display: block
+  .no-touch &:hover
+    .menu-trigger__background
+      transform: scale(1.04)
+  &.menu-opened
+    .menu-trigger__menu
+      opacity: 0
+    .menu-trigger__close
+      opacity: 1
+
+.menu-trigger__background
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  border-radius: 1.7rem
+  background-color: $white
+  transform: scale(1)
+  transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+
+.menu-trigger__menu
+  display: block
+  position: relative
+  overflow: hidden
+  transition: opacity .3s ease-in-out
+
+.menu-trigger__close
+  display: block
+  position: absolute
+  top: 0
+  +center(x)
+  opacity: 0
+  overflow: hidden
+  transition: opacity .3s ease-in-out
+
+.btn-l
+  height: 6rem
+  border-radius: 3.2rem
+  padding: 0 2rem
+  font: normal 500 1.8rem/5.8rem $default-font
+  text-transform: uppercase
+  letter-spacing: 0.06rem
+
+.btn__background
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  border-radius: 3.2rem
+  background-color: $white
+  transform: scale(1)
+  transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+  &.dark
+    background-color: $base-color-dark
+    border: 1px solid $base-color-dark
+  &.dark-outline
+    background-color: transparent
+    border: 1px solid $base-color-dark
+  &.medium-outline
+    background-color: transparent
+    border: 1px solid $gray-blue
+  &.mute-outline
+    background-color: transparent
+    border: 1px solid rgba(#6C7275, .5)
+
+.btn__text
+  display: block
+  position: relative
+  overflow: hidden
+  &.light
+    font-weight: 500
+    color: $white
+  &.dark
+    font-weight: 700
+    color: $text-dark
+  &.medium
+    color: $gray-blue
+  &.mute
+    color: #6C7275
+
+.btn-s
+  height: 3.3rem
+  border-radius: 1.8rem
+  padding: 0 1.1rem
+  font: normal 600 1.5rem/3.2rem $default-font
+  text-transform: uppercase
+  letter-spacing: 0.06rem
+
+.btn-s-text
+  font: normal 600 1.5rem/3.2rem $default-font
+  text-transform: uppercase
+  letter-spacing: 0.06rem
+  color: $text-dark
+  overflow: hidden
+
+.btn-s-icon
+  width: 3.2rem
+  height: 3.2rem
+  border-radius: 50%
+  padding: 0
+  .btn-title,
+  .btn-hover
+    display: none
+  +MQ(M)
+    width: auto
+    border-radius: 1.6rem
+    padding: 0 1.1rem
+    i
+      display: none
+    .btn-title,
+    .btn-hover
+      display: block
+
+.inner-video-trigger
+  display: block
+  position: relative
+  width: 10rem
+  height: 10rem
+  border-radius: 50%
+  background-color: $white
+  transform: scale(1)
+  transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+  span,
+  i
+    display: block
+    height: 3.5rem
+  .btn-icon-anim
+    display: block
+    position: absolute
+    +center
+    width: 70%
+    text-align: center
+    padding-left: 1rem
+    overflow: hidden
+  .no-touch &:hover
+    transform: scale(1.03)
+    i
+      animation: 0.4s ease-in-out 0s 1 both slideOutLeft
+
+.btn-bottom
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  .circle
+    position: relative
+    width: 10rem
+    height: 10rem
+    border-radius: 50%
+    border: 1px solid $gray-blue
+    background-color: transparent
+    overflow: hidden
+    transform: scale(1)
+    transition: transform .3s cubic-bezier(0.23, 0.65, 0.74, 1.09)
+  .circle__icon
+    display: flex
+    position: absolute
+    +center
+    overflow: hidden
+    svg
+      display: block
+      position: relative
+  .caption
+    margin-left: 3rem
+    font: normal 600 1.5rem/3.1rem $default-font
+    text-transform: uppercase
+    letter-spacing: 0.06rem
+    color: $gray-blue
+    transition: colors 0.3s
+  .no-touch &:hover
+    .circle
+      transform: scale(1.03)
+    .caption
+      color: $text-dark
+  &.download
+    .no-touch &:hover
+      .circle__icon
+        svg
+          animation: 0.4s ease-in-out 0s 1 both slideOutCorner
+  &.more
+    .no-touch &:hover
+      .circle__icon
+        svg
+          animation: 0.4s ease-in-out 0s 1 both slideOutLeft
+  &.play
+    .circle__icon
+      padding-left: 1rem
+    .no-touch &:hover
+      .circle__icon
+        svg
+          animation: 0.4s ease-in-out 0s 1 both slideOutLeft
+
+@keyframes slideOutLeft
+  0%
+    transform: translateX(0)
+  50%
+    transform: translateX(100%)
+  51%
+    opacity: 0
+  52%
+    transform: translateX(-100%)
+    opacity: 0
+  53%
+    opacity: 1
+  100%
+    transform: translateX(0)
+
+@keyframes slideOutRight
+  0%
+    transform: translateX(0)
+  50%
+    transform: translateX(-100%)
+  51%
+    opacity: 0
+  52%
+    transform: translateX(100%)
+    opacity: 0
+  53%
+    opacity: 1
+  100%
+    transform: translateX(0)
+
+@keyframes slideOutCorner
+  0%
+    transform: translateX(0) translateY(0)
+  50%
+    transform: translateX(100%) translateY(100%)
+  51%
+    opacity: 0
+  52%
+    transform: translateX(-100%) translateY(-100%)
+    opacity: 0
+  53%
+    opacity: 1
+  100%
+    transform: translateX(0) translateY(0)
+
+@keyframes slideUpCorner
+  0%
+    transform: translateX(0) translateY(0)
+  50%
+    transform: translateX(-100%) translateY(-100%)
+  51%
+    opacity: 0
+  52%
+    transform: translateX(100%) translateY(100%)
+    opacity: 0
+  53%
+    opacity: 1
+  100%
+    transform: translateX(0) translateY(0)

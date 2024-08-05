@@ -1,0 +1,67 @@
+.header
+  position: relative
+  +position(fixed, 0 null null 0)
+  width: 100%
+  min-width: 320px
+  padding: 1.5rem
+  z-index: 9
+  +MQ(M)
+    padding: 3rem
+  
+.header__logo
+  position: absolute
+  left: 3rem
+  +center(y)
+  z-index: 2
+  img
+    width: auto
+  +MQ(M)
+    left: 5rem
+  +MQ(XXL)
+    left: 6rem
+
+.header__content
+  height: 62px
+  padding: 0 1.5rem
+  border-radius: 3.1rem
+  background-color: rgba($white, 0.4)
+  +MQ(M)
+    height: 72px
+    padding: 0 2rem
+    border-radius: 3.6rem
+  +MQ(L)
+    height: 72px
+    padding: 0
+    border-radius: 0
+    background-color: transparent
+    border-top: none
+    border-bottom: none
+  +MQ(XXL)
+    height: 92px
+    
+.header__buttons
+  height: 100%
+  padding: 0 1rem
+  border-radius: 0
+  background-color: transparent
+  border-top: none
+  border-bottom: none
+  +MQ(L)
+    padding: 0 2rem
+    border-radius: 3.6rem
+  +MQ(XXL)
+    padding: 0 3rem
+    border-radius: 4.6rem
+
+.socials-desktop
+  display: none
+  +MQ(L)
+    display: block
+    margin-right: 2rem
+
+.header__menu
+  height: 100%
+  +MQ(L)
+    padding: 0 2rem
+  +MQ(XXL)
+    padding: 0 3rem

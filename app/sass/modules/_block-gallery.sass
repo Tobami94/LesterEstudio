@@ -1,0 +1,91 @@
+.works__gallery
+  position: relative
+
+.my-gallery
+
+.my-gallery__item
+  display: block
+  position: relative
+  overflow: hidden
+  cursor: pointer
+  +MQ(XL)
+    transform: scale3d(1,1,1)
+    transition: all .3s ease-in-out
+    .no-touch &:hover
+      transform: scale3d(1.03,1.03,1)
+      .my-gallery__description
+        opacity: 1
+        h4
+          transform: translateY(0)
+          small
+            transform: translateY(0)
+        .card__tags
+          transform: translateY(0)
+
+.my-gallery__link
+  display: block
+  position: relative
+  width: 100%
+  overflow: hidden
+
+.my-gallery__description
+  +position(absolute, null null 0 1.5rem)
+  width: calc(100% - 3rem)
+  padding: 3rem
+  backdrop-filter: blur(14px)
+  h4
+    margin-bottom: 1rem
+  p
+    display: none
+  +MQ(XL)
+    display: none
+
+.pswp__caption__center
+  max-width: 700px
+  padding: 2.4rem 10%
+  h4
+    font-weight: 300
+    color: $text-light
+    margin-bottom: 1rem
+  .rounded-tag
+    color: $text-light
+    border: 1px solid $base-color
+  p
+    font-weight: 300
+    color: $text-light
+    margin-top: 0.8rem
+  +MQ(XL)
+    padding: 2.4rem 8rem
+  +MQ(XXL)
+    padding: 2.4rem 10rem
+    h4
+      margin-bottom: 1.4rem
+    p
+      margin-top: 1.1rem
+
+.pswp__counter
+  font-family: $default-font
+
+.pswp__button--close
+  opacity: 1
+
+.pswp__button--arrow--left::before, .pswp__button--arrow--right::before
+  width: 44px
+  height: 44px
+
+.pswp__button--arrow--left:before
+  left: 0
+  background-position: -132px -44px
+
+.pswp__button--arrow--right:before
+  right: 0
+  background-position: -88px -44px
+
+.pswp__bg
+  background: $base-color-dark
+
+.pswp__caption, .pswp__top-bar
+  background-color: rgba(0,0,0,.3)
+
+.pswp__button--close
+  background-color: $accent-color

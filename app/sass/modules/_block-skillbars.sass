@@ -1,0 +1,39 @@
+.show-skillbar
+  display: block
+  padding: 0
+  margin-bottom: 4.4rem
+  &:last-of-type
+    margin-bottom: 0
+
+.skillbar
+  position: relative
+  width: 100%
+  height: 3.4rem
+  border-bottom: 2px solid rgba($base-color-dark, .1)
+  +MQ(XXL)
+    height: 4rem
+
+.skillbar-title
+  +position(absolute, 0 null null 0)
+  font: normal 400 2.8rem/1.1 $default-font
+  text-transform: uppercase
+  color: $text-dark
+  +MQ(XXL)
+    font-size: 3.4rem
+
+.skillbar-bar
+  display: inline-block
+  +position(absolute, null null -2px 0)
+  width: 0px
+  height: 2px
+  background-color: $base-color-dark
+
+.skill-bar-percent
+  display: block
+  +position(absolute, 0 2px null null)
+  font: normal 400 2.8rem/1.1 $default-font
+  text-transform: uppercase
+  color: $text-dark
+  font-feature-settings: "lnum"
+  +MQ(XXL)
+    font-size: 3.4rem

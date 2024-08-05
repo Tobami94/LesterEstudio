@@ -1,0 +1,147 @@
+*, *::before, *::after
+  box-sizing: border-box
+
+button:active, button:focus
+  outline: none !important
+
+button::-moz-focus-inner
+  border: 0 !important
+
+input::-moz-focus-inner
+  border: 0 !important
+
+::selection
+  background-color: shade($accent-color-two, 20%)
+  color: $text-dark
+  text-shadow: none
+
+::-webkit-scrollbar
+  display: none
+  width: 5px
+  background: rgba(255,255,255,0.0)
+  border-radius: 10px
+  +MQ(M)
+    display: block
+
+::-webkit-scrollbar-track
+  border-radius: 20px
+  background-color: rgba(0,0,0,0.0)
+  padding-top: 3rem
+
+::-webkit-scrollbar-thumb
+  background-color: $accent-color
+  background: linear-gradient(to bottom, tint($accent-color, 30%) 0%,$accent-color-two 100%)
+  border-radius: 10px
+
+html,
+body
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+html
+  font-family: sans-serif
+  font-size: 62.5%
+  +font-smoothing
+
+body
+  position: relative
+  min-width: 320px
+  overflow-x: hidden !important
+  font: normal 400 3rem/1.4 $default-font
+  text-rendering: optimizeLegibility
+  background-color: $base-color
+  color: $text-dark
+
+section
+  position: relative
+  min-width: 320px
+
+a
+  text-decoration: none
+  outline: 0
+  -webkit-tap-highlight-color: rgba($black, 0)
+  transition: all $animation-duration ease-in-out
+
+img
+  display: block
+  width: 100%
+  height: auto
+
+.blur
+  position: absolute
+  z-index: 1
+  border-radius: 900px
+  filter: blur(clamp(40px, 7vw, 90px))
+  &:nth-of-type(1)
+    background: rgba($accent-color, 0.4)
+    height: clamp(400px, 70vw, 70vw)
+    width: calc(clamp(400px, 70vw, 70vw) * 1.1)
+    top: 60vh
+    left: 5vw
+  &:nth-of-type(2)
+    background: rgba($accent-color-two, 0.6)
+    height: clamp(300px, 46vw, 46vw)
+    width: calc(clamp(300px, 46vw, 46vw) * 0.75)
+    top: 30vh
+    right: 30vw
+  &:nth-of-type(3)
+    background: rgba($accent-color, 0.4)
+    height: clamp(100px, 20vw, 20vw)
+    width: calc(clamp(100px, 20vw, 20vw) * 2)
+    top: -10vh
+    left: -10vw
+
+.overflow-hidden
+  overflow: hidden !important
+
+.fullheight
+  position: relative
+  height: auto
+  +MQ(L)
+    height: 100%
+
+.fullheight-mobile
+  position: relative
+  height: 100%
+
+.fullscreen-bg
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-color: $base-color
+
+.color-layer
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+
+.layer-dark-03
+  background-color: rgba($black, 0.3)
+
+.layer-dark-06
+  background-color: rgba($black, 0.6)
+
+.border-radius-l
+  border-radius: 3.1rem
+  +MQ(M)
+    border-radius: 3.6rem
+  +MQ(XXL)
+    border-radius: 4.6rem
+
+.border-radius-m
+  border-radius: 3.2rem
+
+.border-radius-s
+  border-radius: 1.6rem
+
+.fullwidth-container
+  position: relative
+  width: 100%
+  height: 350px
+  +MQ(S)
+    height: 350px
+  +MQ(L)
+    height: 450px
+  +MQ(XXL)
+    height: 600px

@@ -1,0 +1,96 @@
+.popup
+  +position(fixed, 0 null null 0)
+  width: 100%
+  min-width: 320px
+  height: 100%
+  overflow-y: auto
+  background-color: rgba($white, 0.05)
+  backdrop-filter: blur(14px)
+  z-index: 10
+
+.mfp-bg
+  background-color: rgba($white, 0.05)
+  backdrop-filter: blur(14px)
+
+@supports (backdrop-filter: blur(14px))
+  .popup,
+  .mfp-bg
+    background-color: rgba($white, 0.05)
+    backdrop-filter: blur(14px)
+@supports not (backdrop-filter: blur(14px))
+  .popup,
+  .mfp-bg
+    background-color: rgba($white, 0.5)
+
+.popup__container
+  position: relative
+  padding: 1.5rem
+  +MQ(M)
+    position: absolute
+    left: 0
+    +center(y)
+    width: 100%
+    padding: 3rem
+
+.popup__content
+  position: relative
+  width: 100%
+  height: auto
+  background-color: tint($base-color, 20%)
+  +shadow(5)
+  padding: 3rem
+  border-top: 1px solid rgba($white, 0.07)
+  border-bottom: 1px solid rgba($white, 0.07)
+  z-index: 1
+  +MQ(M)
+    padding: 5rem
+    margin: 0 auto
+  +MQ(L)
+    max-width: 640px
+  +MQ(XXL)
+    padding: 6rem
+    max-width: 700px
+
+.popup-close
+  +position(absolute, 1.5rem 1.5rem null null)
+  z-index: 3
+  +MQ(M)
+    top: 2rem
+    right: 2rem
+  +MQ(XXL)
+    +position(absolute, 3rem 3rem null null)
+
+.popup-title
+  position: relative
+  margin-bottom: 4rem
+
+// Video Popup fade transition
+.mfp-fade.mfp-bg
+  opacity: 0
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+
+.mfp-fade.mfp-bg.mfp-ready
+  opacity: 1
+
+.mfp-fade.mfp-bg.mfp-removing
+  opacity: 0
+
+.mfp-fade.mfp-wrap .mfp-content
+  opacity: 0
+  -webkit-transition: all 0.3s ease-out
+  -moz-transition: all 0.3s ease-out
+  transition: all 0.3s ease-out
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content
+  opacity: 1
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content
+  opacity: 0
+
+.mfp-image-holder .mfp-close,
+.mfp-iframe-holder .mfp-close
+  color: $text-dark
+  opacity: 1
+

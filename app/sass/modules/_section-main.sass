@@ -1,0 +1,84 @@
+.main
+  position: relative
+  height: 100%
+  padding: 1.5rem
+  overflow-y: auto
+  overflow-x: hidden
+  z-index: 3
+  +MQ(M)
+    padding: 3rem
+  +MQ(L)
+    min-height: 600px
+    overflow: hidden
+    padding: 3rem
+
+.main__content
+  position: relative
+  padding-top: 62px
+  +MQ(M)
+    padding-top: 72px
+  +MQ(L)
+    height: 100%
+    padding-top: 0
+
+.main__intro,
+.main__media
+  position: relative
+  +MQ(L)
+    height: 100%
+  
+.main__media
+  height: 70vh
+  min-height: 600px
+  +MQ(M)
+    min-height: 760px
+  +MQ(L)
+    height: 100%
+    min-height: auto
+
+.intro__content
+  position: relative
+  padding: 8rem 0
+  +MQ(M)
+    padding: 10rem 0
+  +MQ(L)
+    width: 100%
+    height: 100%
+    padding: 0
+    overflow: hidden
+  
+.headline
+  padding: 0 1.5rem
+  +MQ(M)
+    padding: 0 2rem
+  +MQ(L)
+    +position(absolute, null null 0 0)
+  +MQ(XXL)
+    padding: 0 3rem
+
+.headline__title
+  max-width: 105rem
+
+.headline__btnholder
+  margin-top: 3.3rem
+  padding-bottom: 0.8rem
+  +MQ(M)
+    padding-bottom: 1.4rem
+  +MQ(L)
+    padding-bottom: 2rem
+  +MQ(XXL)
+    padding-bottom: 3rem
+
+.media__content
+  position: relative
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+.media__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover

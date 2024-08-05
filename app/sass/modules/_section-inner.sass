@@ -1,0 +1,143 @@
+.inner
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  overflow-y: auto
+  overflow-x: hidden
+  background-color: transparent
+  padding: 1.5rem
+  z-index: 8
+  +MQ(M)
+    padding: 3rem
+  +MQ(XL)
+    overflow: hidden
+
+.inner__content
+  position: relative
+  padding-top: 62px
+  +MQ(M)
+    padding-top: 72px
+  +MQ(L)
+    padding-top: 0
+    height: 100%
+    min-height: 600px
+    overflow: hidden
+
+.inner__data,
+.inner__media
+  position: relative
+  +MQ(L)
+    height: 100%
+
+.innerdata__blocks
+  position: relative
+  padding: 8rem 0
+  background-color: transparent
+  +MQ(M)
+    padding: 10rem 0
+  +MQ(L)
+    position: relative
+    width: 100%
+    height: 100%
+    border-top-left-radius: 3.6rem
+    border-top-right-radius: 3.6rem
+    padding: 0
+    overflow: hidden
+  +MQ(XXL)
+    border-top-left-radius: 4.6rem
+    border-top-right-radius: 4.6rem
+
+.blocks__scroll
+  position: relative
+  width: 100%
+  height: 100%
+  overflow-y: auto
+  overflow-x: hidden
+  +MQ(L)
+    padding: 7.2rem 0 0 0
+  +MQ(XXL)
+    padding: 9.2rem 0 0 0
+
+.blocks__container
+  position: relative
+  padding: 0 1.5rem
+  margin-bottom: 5rem
+  &:last-of-type
+    margin-bottom: 0
+  +MQ(M)
+    padding: 0 2rem
+    margin-bottom: 7rem
+  +MQ(L)
+    &:first-of-type
+      padding-top: 7rem
+  +MQ(XXL)
+    padding: 0 3rem
+    margin-bottom: 10rem
+    &:first-of-type
+      padding-top: 10rem
+
+.inner__media
+  height: 70vh
+  min-height: 600px
+  +MQ(M)
+    min-height: 760px
+  +MQ(L)
+    height: 100%
+    min-height: auto
+
+.innermedia__content
+  position: relative
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+.innermedia__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  
+.inner__name
+  width: auto
+
+.inner__title
+  margin-bottom: 2.6rem
+  +MQ(M)
+    margin-bottom: 3.4rem
+  
+.inner__text
+  padding-top: 2.4rem
+  +MQ(M)
+    padding-top: 0
+
+.card
+  position: relative
+  height: 400px
+  padding: 3rem
+  overflow: hidden
+  +MQ(XXL)
+    height: 500px
+
+.card-auto
+  position: relative
+  height: 100%
+  padding: 3rem
+
+.card-white
+  background-color: rgba($white, 0.5)
+
+.card-gradient
+  background: linear-gradient(to right, #f1c7d8 0%,#b3c8f1 100%)
+
+.card__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+
+.card__title
+  position: relative

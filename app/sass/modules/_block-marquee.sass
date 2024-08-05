@@ -1,0 +1,119 @@
+.decor
+  display: flex
+  position: relative
+  align-items: center
+  width: 100%
+  min-width: 320px
+  height: 62px
+  background-color: rgba($white, 0.2)
+  border-radius: 3.1rem
+  overflow: hidden
+  +MQ(M)
+    height: 72px
+    border-radius: 3.6rem
+  +MQ(XXL)
+    height: 92px
+    border-radius: 4.6rem
+  
+.marquee
+  display: flex
+  position: relative
+  align-items: center
+  overflow: hidden
+  width: 100%
+  gap: 0
+  user-select: none
+  padding: 5rem 0
+  &.small
+    padding: 0
+  +MQ(M)
+    padding: 7rem 0
+    &.small
+      padding: 0
+  +MQ(XL)
+    //padding: 75px 0
+    &.small
+      padding: 0
+  +MQ(XXL)
+    padding: 10rem 0
+    &.small
+      padding: 0
+
+.marquee-content
+  display: flex
+  flex-shrink: 0
+  justify-content: space-around
+  gap: 0
+  
+@keyframes scroll
+  from
+    transform: translateX(0)
+  to
+    transform: translateX(calc(-100% - 1rem))
+    
+.scroll
+  animation: scroll 24s linear infinite
+
+.marquee
+  background-color: transparent
+  span
+    display: block
+    position: relative
+    white-space: nowrap
+    font: normal 300 4rem/1.1 $default-font
+    text-transform: uppercase
+    letter-spacing: 0.1rem
+    color: $text-dark
+    padding-right: 74px
+    &::after
+      content: ""
+      display: block
+      +position(absolute, 0 0 null null) 
+      width: 74px
+      height: 100%
+      color: $accent-color
+      background-size: 32px 32px
+      background-image: url("../img/icons/60x60-star.svg")
+      background-repeat: no-repeat
+      background-position: center
+  &.small
+    span
+      font-size: 2.8rem
+      padding-right: 58px
+      &::after
+        width: 58px
+        height: 100%
+        color: $accent-color
+        background-size: 24px 24px
+        background-image: url("../img/icons/24x24-star.svg")
+  &.opposite
+    background-color: $base-color
+    span
+      font-weight: 400
+      color: $text-light-mute
+      &::after
+        color: $accent-color
+  +MQ(M)
+    span
+      font-size: 6rem
+      padding-right: 110px
+      &::after
+        width: 110px
+        background-size: 50px 50px
+  +MQ(XXL)
+    span
+      font-size: 8.4rem
+      padding-right: 140px
+      &::after
+        width: 140px
+        background-size: 60px 60px
+    &.small
+      span
+        font-size: 3.4rem
+        padding-right: 74px
+        &::after
+          width: 74px
+          height: 100%
+          color: $accent-color
+          background-size: 28px 28px
+          
