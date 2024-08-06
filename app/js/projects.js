@@ -23,17 +23,15 @@ $(document).ready(function() {
     //   }, 500);
     // });
 
-    
+
 
 // Handle button-back
 
     $('#back-to-works').on('click', function(event) {
       event.preventDefault();
-      console.log("Back to works button clicked");
       hideAllSections(); 
       setTimeout(function(){
           $('#works').addClass('active animate-in'); 
-          console.log("#works is now active");
       }, 500);
   });
   
