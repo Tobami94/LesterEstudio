@@ -9,9 +9,7 @@
  *  5. Menu & Sections Behavior
  *  6. Popup Open/Close
  *  7. Header Appearance Change on Scroll
- *
- * ------------------------------------------------
- * Table of Contents End
+
  * ------------------------------------------------ */
 
 /*! GSAP blur background animation */
@@ -103,11 +101,9 @@ $(function() {
       aboutSection       = $('#about'),
       worksSection       = $('#works'),
       contactSection     = $('#contact'),
-      projectSection     = $('#project'),
       homeTrigger        = $('#home-trigger'),
       aboutTrigger       = $('#about-trigger'),
       worksTrigger       = $('#works-trigger'),
-      projectTrigger     = $('#project-trigger'),
       contactTrigger     = $('#contact-trigger');
 
 
@@ -225,7 +221,6 @@ $(function() {
     }, 1500);
   });
 
-
   /*! contact section open */
   contactTrigger.on('click', function(event) {
     event.preventDefault();
@@ -237,21 +232,6 @@ $(function() {
       header.addClass('inner-is-visible');
     }, 1500);
   });
-
-
-    /*! projects section open */
-    projectTrigger.on('click', function(event) {
-      event.preventDefault();
-      setTimeout(function(){
-        projectSection.addClass('active animate-in');
-        projectTrigger.addClass('active-link');
-      }, 500);
-      setTimeout(function(){
-        header.addClass('inner-is-visible');
-      }, 1500);
-    });
-  
-
 
 
   /*! Popup Open/Close */
@@ -286,7 +266,6 @@ $(function() {
       aboutSection   = $('#about'),
       worksSection   = $('#works'),
       contactSection = $('#contact'),
-      projectSection = $('#project'),
       mainSection    = $('#main');
 
   mainSection.on("scroll", function() {
@@ -329,16 +308,4 @@ $(function() {
     }
   });
 
-  projectSection.on("scroll", function() {
-    if ($('#project .inner__content').offset().top < -50) {
-      header.addClass('blurred');
-    } else {
-      header.removeClass('blurred');
-    }
-  });
-
-
-
-
 });
-
