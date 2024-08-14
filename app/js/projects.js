@@ -1,41 +1,34 @@
-
-    // Ocultar todas las secciones
 $(document).ready(function() {
-    function hideAllSections() {
+  function hideAllSections() {
       $('.inner').removeClass('active animate-in');
-    }
-  
-    // Handle open section
-    $('#link-to-section2').on('click', function(event) {
+  }
+
+  $('a[id^="link-to-section"]').on('click', function(event) {
       event.preventDefault();
-      hideAllSections(); 
-      setTimeout(function(){
-        $('#section2').addClass('active animate-in'); // Mostrar la sección
-      }, 500);
-    });
+
+      var linkId = $(this).attr('id');
+      var sectionNumber = linkId.split('-').pop();
+      var sectionId = '#section' + sectionNumber;
   
-    // Manejar el clic en otros enlaces si es necesario
-    // $('#link-to-sectionX').on('click', function(event) {
-    //   event.preventDefault();
-    //   hideAllSections();
-    //   setTimeout(function(){
-    //     $('#sectionX').addClass('active animate-in');
-    //   }, 500);
-    // });
-
-
-
-// Handle button-back
-
-    $('#back-to-works').on('click', function(event) {
-      event.preventDefault();
-      hideAllSections(); 
-      setTimeout(function(){
-          $('#works').addClass('active animate-in'); 
-      }, 500);
-  });
-  
-
+      // Si el ID es correcto, mostrar la sección
+      if ($(sectionId).length > 0) {
+          hideAllSections();
+          $(sectionId).addClass('active animate-in');
+      } else {
+          console.error("Sección no encontrada:", sectionId);
+      }
   });
 
 
+  // Handle button-back
+
+  $('[dataref]').on('click', function(event) {
+    event.preventDefault();
+    var sectionID = $(this).attr('dataref'); // Obtiene el ID de la sección a mostrar
+    hideAllSections(); 
+    setTimeout(function(){
+        $('#' + sectionID).addClass('active animate-in'); 
+    }, 500);
+});
+
+});
