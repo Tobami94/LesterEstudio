@@ -3659,12 +3659,28 @@ form .inputs-description {
   position: relative;
 }
 
+
+.gallery_img {
+
+  position: relative;
+  height: 400px;
+  padding: 3rem;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1400px) {
+  .gallery_img {
+    height: 500px;
+  }
+}
+
+
 .my-gallery__item {
   display: block;
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
+
 @media only screen and (min-width: 1200px) {
   .my-gallery__item {
     -webkit-transform: scale3d(1, 1, 1);
@@ -3790,11 +3806,11 @@ form .inputs-description {
 }
 
 .pswp__bg {
-  background: #131417;
+  background: #0d0d0e8f;
 }
 
 .pswp__caption, .pswp__top-bar {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.658);
 }
 
 .pswp__button--close {
