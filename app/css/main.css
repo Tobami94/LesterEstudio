@@ -3237,6 +3237,7 @@ form .inputs-description {
   }
 }
 
+
 .card {
   position: relative;
   height: 400px;
@@ -3284,6 +3285,20 @@ form .inputs-description {
 /* ------------------------------------------------*/
 /* Inner Sections End */
 /* ------------------------------------------------*/
+
+/* CSS About Section */
+
+.text_about {
+  padding-top: 2.4rem;
+
+}
+@media only screen and (min-width: 768px) {
+  .text_about {
+    padding-top: 0;
+  }
+}
+
+
 /* ------------------------------------------------*/
 /* Skillbars Start */
 /* ------------------------------------------------*/
