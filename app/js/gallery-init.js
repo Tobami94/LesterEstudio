@@ -7,8 +7,8 @@
 
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
-    // parse slide data (url, title, size ...) from DOM elements
-    // (children of gallerySelector)
+   // analiza los datos de la diapositiva (url, título, tamaño...) de los elementos DOM
+    // (hijos de gallerySelector)
     var parseThumbnailElements = function(el) {
         var thumbElements = el.childNodes,
             numNodes = thumbElements.length,
@@ -18,20 +18,20 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             size,
             item;
 
+            // Recorre cada nodo hijo
         for(var i = 0; i < numNodes; i++) {
-
             figureEl = thumbElements[i]; // <figure> element
 
-            // include only element nodes
+            // Solo procesa nodos que sean elementos (nodeType === 1)
             if(figureEl.nodeType !== 1) {
                 continue;
             }
 
-            linkEl = figureEl.children[0]; // <a> element
-
+            linkEl = figureEl.children[0];
+ // Obtiene el tamaño de la imagen desde el atributo data-size
             size = linkEl.getAttribute('data-size').split('x');
 
-            // create slide object
+            // crear objeto de diapositiva
             item = {
                 src: linkEl.getAttribute('href'),
                 w: parseInt(size[0], 10),
@@ -39,37 +39,36 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             };
 
 
-
+// Si existe un <figcaption>, añade el título a la diapositiva
             if(figureEl.children.length > 1) {
-                // <figcaption> content
                 item.title = figureEl.children[1].innerHTML;
             }
 
-            if(linkEl.children.length > 0) {
-                // <img> thumbnail element, retrieving thumbnail url
-                item.src = linkEl.children[0].getAttribute('src');
-            }
-
-            item.el = figureEl; // save link to element for getThumbBoundsFn
-            items.push(item);
+             //búsqueda de la imagen dentro del `div`
+        var imgElement = linkEl.querySelector('div img');
+        if(imgElement) {
+            item.src = imgElement.getAttribute('src');
         }
 
+        item.el = figureEl; 
+        items.push(item);
+    }
         return items;
     };
 
-    // find nearest parent element
+    // busca el elemento padre más cercano
     var closest = function closest(el, fn) {
         return el && ( fn(el) ? el : closest(el.parentNode, fn) );
     };
 
-    // triggers when user clicks on thumbnail
+    // se activa cuando el usuario hace clic en la miniatura
     var onThumbnailsClick = function(e) {
         e = e || window.event;
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
         var eTarget = e.target || e.srcElement;
 
-        // find root element of slide
+        // busca el elemento raíz de la diapositiva
         var clickedListItem = closest(eTarget, function(el) {
             return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
         });
@@ -78,8 +77,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             return;
         }
 
-        // find index of clicked item by looping through all child nodes
-        // alternatively, you may define index via data- attribute
+       // encuentra el índice del elemento en el que se hizo clic recorriendo todos los nodos secundarios
+        // alternativamente, puedes definir el índice mediante el atributo de datos
         var clickedGallery = clickedListItem.parentNode,
             childNodes = clickedListItem.parentNode.childNodes,
             numChildNodes = childNodes.length,
@@ -101,13 +100,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 
         if(index >= 0) {
-            // open PhotoSwipe if valid index found
+            // abre PhotoSwipe si se encuentra un índice válido
             openPhotoSwipe( index, clickedGallery );
         }
         return false;
     };
 
-    // parse picture index and gallery index from URL (#&pid=1&gid=2)
+    // analiza el índice de imágenes y el índice de la galería desde la URL (#&pid=1&gid=2)
     var photoswipeParseHash = function() {
         var hash = window.location.hash.substring(1),
         params = {};
@@ -143,16 +142,18 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
         items = parseThumbnailElements(galleryElement);
 
-        // define options (if needed)
+       // definir opciones (si es necesario)
         options = {
 
             showHideOpacity: true,
 
-            // define gallery index (for URL)
+            
+// definir el índice de la galería (para URL)
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
             getThumbBoundsFn: function(index) {
-                // See Options -> getThumbBoundsFn section of documentation for more info
+                
+// Consulte la sección Opciones -> getThumbBoundsFn de la documentación para obtener más información
                 var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
                     pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
                     rect = thumbnail.getBoundingClientRect();
@@ -190,12 +191,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
             options.showAnimationDuration = 0;
         }
 
-        // Pass data to PhotoSwipe and initialize it
+        
+// Pasar datos a PhotoSwipe e inicializarlos
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.init();
     };
 
-    // loop through all gallery elements and bind events
+    // recorrer todos los elementos de la galería y vincular eventos
     var galleryElements = document.querySelectorAll( gallerySelector );
 
     for(var i = 0, l = galleryElements.length; i < l; i++) {
@@ -203,12 +205,12 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         galleryElements[i].onclick = onThumbnailsClick;
     }
 
-    // Parse URL and open gallery if it contains #&pid=3&gid=1
+    // Analiza la URL y abre la galería si contiene #&pid=3&gid=1
     var hashData = photoswipeParseHash();
     if(hashData.pid && hashData.gid) {
         openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
     }
 };
 
-// execute above function
+// ejecutar la función anterior
 initPhotoSwipeFromDOM('.my-gallery');
